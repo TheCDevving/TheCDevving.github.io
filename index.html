@@ -6,7 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Polish Femboys</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/x-icon" href="/polish_flag.ico">
+  <link rel="icon" type="image/x-icon" href="polish_flag.ico">
+  <style>
+    /* Add the chat window styles here */
+    #chat-window {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      overflow: hidden;
+    }
+
+    #chat-messages {
+      height: 350px;
+      padding: 10px;
+      overflow-y: scroll;
+    }
+
+    #chat-input {
+      width: 100%;
+      padding: 5px;
+    }
+  </style>
 </head>
 
 <body>
@@ -58,7 +82,34 @@
 
   <button class="scroll-to-top" title="Scroll to Top">&#9650;</button>
 
+  <div id="chat-window">
+    <div id="chat-messages"></div>
+    <input type="text" id="chat-input" placeholder="Type your message">
+  </div>
+
   <script src="script.js"></script>
+  <script>
+    var chatMessages = document.getElementById('chat-messages');
+    var chatInput = document.getElementById('chat-input');
+
+    function sendMessage() {
+      var message = chatInput.value;
+
+      if (message.trim() !== '') {
+        var newMessage = document.createElement('div');
+        newMessage.innerText = message;
+        chatMessages.appendChild(newMessage);
+        chatInput.value = '';
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+    }
+
+    chatInput.addEventListener('keyup', function(event) {
+      if (event.keyCode === 13) {
+        sendMessage();
+      }
+    });
+  </script>
 </body>
 
 </html>

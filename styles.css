@@ -106,8 +106,27 @@ body {
     text-align: center;
   }
   
-  #gayfemboyart {
-    background-color: #f3d1a7;
-    color: #000000;
+  /* Chat window styles */
+  
+  #chat-window {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    overflow: hidden;
+  }
+  
+  #chat-messages {
+    height: 350px;
+    padding: 10px;
+    overflow-y: scroll;
+  }
+  
+  #chat-input {
+    width: 100%;
+    padding: 5px;
   }
   
